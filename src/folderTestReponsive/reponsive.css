@@ -1,0 +1,326 @@
+
+.main-conatiner{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin: 0 20%;
+}
+
+.header-container{
+  display: flex;
+  width: 100%;
+  height: 10vh;
+  align-items: center;
+  margin-top: 2rem;
+  justify-content: space-between;
+}
+.menu-header{
+  display: flex;
+}
+.menu-header .item-menu{
+  padding-left: 4rem;
+}
+.logo-icon{
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #335eea;
+}
+.item-menu a {
+  color: #506690;
+  font-family: HKGroteskPro,serif;
+  font-size: 1.2rem;
+}
+.button-buy-now{
+  border: none;
+  padding: 0.8rem 1.6rem 1rem 1.6rem;
+  text-decoration: none;
+  color: aliceblue;
+  background-color: blue;
+  border-radius: 0.5rem;
+}
+.anh-section-one{
+  height: 26rem;
+}
+.section-content-two{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  position: relative;
+  
+}
+.section-content-item div{
+  display: flex;
+}
+.section-content-item{
+}
+.content-hello{
+  font-size: 3.3em;
+  line-height: 1.2;
+  font-family: HKGroteskPro,serif;
+  font-weight: 500;
+  color: #353536;
+  
+}
+.content-hello span{
+  color: #335eea;
+}
+.contenet-build-beau{
+  font-size: 1.6rem;
+  position: relative;
+  top: -2rem;
+  color: #869ab8!important;
+  font-family: HKGroteskPro,serif;
+}
+.view-all-pages{
+  border: none;
+  background-color: #335eea;
+  padding: 1rem 2rem ;
+  color: aliceblue;
+  text-decoration: none;
+  border-radius: 0.7rem;
+  font-size: 1.3rem;
+}
+.documentation{
+  border: none;
+  background-color: #adc5f0;
+  padding: 1rem 2rem ;
+  position: relative;
+  left: 1rem;
+  color: #335eea;
+  text-decoration: none;
+  border-radius: 0.7rem;
+  font-size: 1.3rem;
+}
+.section-content-three{
+  display: flex;
+  width: 100%;
+  position: relative;
+  justify-content: space-between;
+  top: 7rem;
+  
+}
+.bdd-class{
+  font-size: 1.5rem;
+  color: #505052;
+  line-height: 1.4;
+  font-family: HKGroteskPro,serif;
+}
+.content-long{
+  color: #869ab8!important;
+  font-family: HKGroteskPro,serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+.section-content-four{
+  width:100vw;
+  height: 15vh;
+  border: 1px solid rgb(224, 224, 224);
+  position: relative;
+  top: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo-company-big{
+  color: #869ab8!important;
+}
+.border-logo-big{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.logo-company-big{
+  margin-right: 1.8rem;
+  color: #869ab8!important;
+}
+.icon-menu-bar{
+  display: none;
+}
+
+
+
+@media only screen and (max-width:1194px){
+  .main-conatiner{
+    margin: 0 20%;
+}
+  .menu-header{
+    display: none;
+  }
+  .button-buy-now{
+    display: none;
+  }
+  .icon-menu-bar{
+    display: inline;
+    position: relative;
+    font-size: 1.6rem;
+    left: 16em;
+    top: -2.5em;
+  }
+  .section-content-two{
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+  .anh-section-one{
+    height: 35rem;
+   
+  }
+  .section-image-content{
+    display: flex;
+    justify-content: center;
+  }
+  .content-hello{
+    font-size: 4rem;
+    text-align: center;
+  }
+  .section-content-item{
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+  .contenet-build-beau{
+    text-align: center;
+    font-size: 2rem;
+    padding-top: 1rem;
+  }
+  .view-all-pages{
+    font-size: 2rem;
+    width: 70%;
+    height:3vh;
+    padding: 1rem 2rem 2rem 1rem;
+    text-align: center;
+  }
+  .documentation{
+    font-size: 2rem;
+    width: 70%;
+    height:3vh;
+    padding: 1rem 2rem 2rem 1rem;
+    text-align: center;
+  }
+  .section-content-three{
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    align-items: center;
+  }
+  .bdd-class{
+    margin-top: 0.5rem;
+    font-size: 3rem;
+  }
+  .content-long{
+    position: relative;
+    top: -1rem;
+    font-size: 2rem;
+  }
+  .class-docu-every{
+    position: relative;
+    left: 2rem;
+  }
+  .border-logo-big{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    position: relative;
+    left: 3rem;
+  }
+  .border-logo-big svg{
+    width: 10rem;
+    padding: 0.7rem;
+  }
+  .section-content-four{
+    height: 10vh;
+    padding: 2rem;
+    margin-top: 2rem;
+    margin-left: 4rem;
+    padding-left: 2rem;
+  }
+}
+@media only screen and (min-width:1350px) and (max-width:1855px){
+  .main-conatiner{
+    margin: 0 10%;
+    overflow-x: hidden;
+  }
+}
+@media only screen and (min-width:1200px) and (max-width:1420px){
+  .main-conatiner{
+    margin: 0 5%;
+  }
+}
+@media only screen and (min-width:1194px) and (max-width:1239px){
+  
+    .main-conatiner{
+      margin: 0 2%;
+  }
+  .border-logo-big {
+    margin: 0 5rem;
+  }
+}
+
+@media only screen and (max-width:954px){
+  
+  .main-conatiner{
+    margin: 0 2%;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width:750px){
+  
+  .main-conatiner{
+    margin: 0 2%;
+    width: 100%;
+  }
+  .anh-section-one{
+    height: 20rem;
+  }
+
+  .icon-menu-bar{
+    left: 10em;
+    top: -2.2em;
+  }
+  .content-hello{
+    font-size: 3rem;
+    line-height: 2rem;
+  }
+
+  .contenet-build-beau{
+    font-size: 1.5rem;
+    line-height: 1.4rem;
+  }
+  .bdd-class{
+    
+    font-size: 2.5rem;
+  }
+  .content-long{
+    font-size: 1.5rem;
+    line-height: 1.4rem;
+  }
+}
+@media only screen and (max-width:527px){
+
+  .section-content-item div{
+    flex-flow: column;
+  }
+  .view-all-pages{
+    
+    width: 80%;
+  }
+  .documentation{
+    width: 80%;
+   position: relative;
+   left: 0;
+   margin-top: 1rem;
+  }
+  .section-content-four{
+    font-size: 1rem;
+    position: relative;
+    left: -2rem;
+  }
+  .border-logo-big svg{
+    width: 7rem;
+    padding: 0.5rem;
+  }
+}
