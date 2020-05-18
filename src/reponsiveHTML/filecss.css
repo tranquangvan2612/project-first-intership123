@@ -254,7 +254,7 @@ body{
   .menu-element-two-1 {
     display: flex;
     flex-flow: column;
-    margin-left: 3rem;
+    margin-left: 1rem;
   }
   .menu-element-two-2 {
     display: flex;
@@ -288,16 +288,16 @@ body{
     line-height: 1.55;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #335eea;
+    color: #335eea!important;
     white-space: nowrap;
     margin-bottom: 1rem;
-    margin-top: 1.2rem;
     opacity: 0.7;
   }
   .dropdown-item {
     text-decoration: none;
     margin-bottom: 0.5rem;
     opacity: 0.7;
+    font-size: 0.9rem!important;
   }
   .menu-dropdown-two {
     justify-content: space-around;
@@ -306,6 +306,8 @@ body{
   .menu-drop-page {
     display: flex;
     flex-flow: column;
+    text-align: center;
+    padding-top: 2rem;
   }
   .menu-drop-page h6 {
     opacity: 0.7;
@@ -319,6 +321,7 @@ body{
     white-space: nowrap;
     margin-bottom: 0.8rem;
     opacity: 0.7;
+    font-size: 0.9rem!important;
   }
   .menu-dropdown-three {
     display: flex;
@@ -390,6 +393,7 @@ body{
     white-space: nowrap;
     margin-bottom: 0.8rem;
     opacity: 0.7;
+    font-size: 1rem!important;
   }
   .icon{
     text-align: center;
