@@ -701,6 +701,10 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-flow: column;
+  }
+  .messageSuccess{
+    color: rgb(52, 196, 8);
   }
   .button-download-sample{
     width: 100%;
@@ -715,7 +719,14 @@ body{
   transition-delay: 0.2s;
   transition-duration: 0.2s;
   }
-  
+  .button-download-sample:focus{
+    outline: none;
+  }
+  .messageError{
+    color: #ea341d;
+    text-align: center;
+    font-weight: bold;
+  }
   .button-download-sample:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 1rem rgb(203, 200, 200);
@@ -880,6 +891,12 @@ body{
      border-radius: 1rem;
      transform: rotateY(-30deg) rotateX(25deg);
      box-shadow: 0 0 7rem #b0b0b0;
+     position: absolute;
+     top: 0;
+     left: 1.5rem;
+   }
+   .svg-hidden-image svg{
+     color: #bababa;
    }
    @media only screen and (max-width: 940px){
      .content-main-experience{
