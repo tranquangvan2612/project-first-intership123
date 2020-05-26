@@ -909,99 +909,125 @@
 <script>
   $(document).ready(function () {
 
-    // $('#btnSubmit').click(function () {
-    //   var person = {
-    //         username: $("#cardName").val(),
-    //         password:$("#cardPassword").val()
-    //     }
-    //     $.ajax({
-    //         url: 'http://localhost:3000/api/login',
-    //         type: 'post',
-    //         dataType: 'json', 
-    //         contentType: 'application/json',
-    //         success: function (data) {
-    //             $('#messageSuccess').html(data.msg);
-    //         },
-    //         data: JSON.stringify(person)
-    //     });
-    // });
+    $('#btnSubmit').click(function () {
+      var person = {
+        username: $("#cardName").val(),
+        password: $("#cardPassword").val()
+      }
+      // $.ajax({
+      //   url: 'http://localhost:3001/api/login',
+      //   type: 'post',
+      //   dataType: 'json',
+      //   contentType: 'application/json',
+      //   success: function (data) {
+      //     console.log(data);
+      //     $('#messageSuccess').html(data.message);
+      //   },
+      //   data: JSON.stringify(person),
+      //   error: function (err) {
+      //     console.log(err);
+      //     console.log(err.responseJSON.error);  
+      //     if(err.status == 404){    
+      //     $('#messageSuccess').html(err.responseJSON.error);
+      //     }
+      //     else if(err.status == 400){    
+      //     $('#messageSuccess').html(err.responseJSON.message);
+      //     }
+      //   }
+      // });
+      let data = JSON.stringify(person);
+      console.log(data);
+      async function doAjax(args) {
+        let result;
+        try {
+          result = await $.ajax({
+            url: 'http://localhost:3001/api/login',
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',//important
+            data: args
+          });
+          $('#messageSuccess').html(result.message);
+        } catch (error) {
+          console.error(error);
+          if (error.status == 404) {
+            $('#messageSuccess').html(error.responseJSON.error);
+          }
+          else if (error.status == 400) {
+            $('#messageSuccess').html(error.responseJSON.message);
+          }
+        }
+        console.log(result);
+      }
+      doAjax(data);
+    });
 
+ 
 
     // $("#btnSubmit").click(function () {
-    //   $.post("http://localhost:3000/api/login",
-    //     {
-    //       username: "thuhang",
-    //       password: "thuhang123"
-    //     },
-    //     function (data, status) {
-    //       alert("Data: " + data + "\nStatus: " + status);
+    //   $.ajax({
+    //     url: 'https://5ecba06c44637c0016d8ccc5.mockapi.io/accountPerson',
+    //     type: 'GET',
+    //     dataType: 'json',
+    //     success: function (data, textStatus, xhr) {
+
+    //       let inputName = $("#cardName").val();
+
+    //       let inputEmail = $("#cardEmail").val();
+    //       if (!inputEmail) {
+    //         console.log("empty inputEmail");
+    //         $("#messageErrorEmail").text("Error empty value");
+    //       }
+    //       else {
+    //         console.log(inputEmail);
+    //         $("#messageErrorEmail").text("");
+    //       }
+
+    //       let inputPassword = $("#cardPassword").val();
+
+
+    //       $.each(data, function (i, item) {
+    //         if (!inputName) {
+    //         console.log("empty name");
+    //         $("#messageErrorName").text("Error empty value");
+    //         return false;
+    //       }else  if(inputName==(data[i].username)){       
+    //         $("#messageErrorName").text("");
+    //        return false;
+    //       }
+    //       else {        
+    //         $("#messageErrorName").text("Error Username");
+
+    //       }
     //     });
+
+    //       $.each(data, function (i, item) {
+    //       if (!inputPassword) {
+    //         $("#messageErrorPassword").text("Error empty value");
+    //         $("#messageSuccess").text("");
+    //         return false;
+    //       } else if (inputPassword.length < 8) {
+    //         $("#messageErrorPassword").text("Password must be over 8");
+    //         $("#messageSuccess").text("");
+    //         return false;
+    //       }else if(inputPassword==(data[i].password)){
+    //         console.log(inputPassword);
+    //         $("#messageErrorPassword").text("");
+    //         $("#messageSuccess").text("Login in successfully");
+    //         return false;
+    //       }
+    //       else if(inputPassword!=(data[i].password)){
+    //         $("#messageErrorPassword").text("Error Password");
+    //         $("#messageSuccess").text(""); 
+    //       }
+
+    //       });
+    //     },
+    //     error: function (xhr, textStatus, errorThrown) {
+    //       console.log('Error in Operation');
+    //     }
+    //   });
     // });
-
-    $("#btnSubmit").click(function () {
-      $.ajax({
-        url: 'https://5ecba06c44637c0016d8ccc5.mockapi.io/accountPerson',
-        type: 'GET',
-        dataType: 'json',
-        success: function (data, textStatus, xhr) {
-
-          let inputName = $("#cardName").val();
-        
-          let inputEmail = $("#cardEmail").val();
-          if (!inputEmail) {
-            console.log("empty inputEmail");
-            $("#messageErrorEmail").text("Error empty value");
-          }
-          else {
-            console.log(inputEmail);
-            $("#messageErrorEmail").text("");
-          }
-
-          let inputPassword = $("#cardPassword").val();
-          
-
-          $.each(data, function (i, item) {
-            if (!inputName) {
-            console.log("empty name");
-            $("#messageErrorName").text("Error empty value");
-            return false;
-          }else  if(inputName==(data[i].username)){       
-            $("#messageErrorName").text("");
-           return false;
-          }
-          else {        
-            $("#messageErrorName").text("Error Username");
-          
-          }
-        });
-
-          $.each(data, function (i, item) {
-          if (!inputPassword) {
-            $("#messageErrorPassword").text("Error empty value");
-            $("#messageSuccess").text("");
-            return false;
-          } else if (inputPassword.length < 8) {
-            $("#messageErrorPassword").text("Password must be over 8");
-            $("#messageSuccess").text("");
-            return false;
-          }else if(inputPassword==(data[i].password)){
-            console.log(inputPassword);
-            $("#messageErrorPassword").text("");
-            $("#messageSuccess").text("Login in successfully");
-            return false;
-          }
-          else if(inputPassword!=(data[i].password)){
-            $("#messageErrorPassword").text("Error Password");
-            $("#messageSuccess").text(""); 
-          }
-           
-          });
-        },
-        error: function (xhr, textStatus, errorThrown) {
-          console.log('Error in Operation');
-        }
-      });
-    });
 
 
 
