@@ -4,129 +4,116 @@
     <meta charset="utf-8" />  
     <title>My Slider</title>  
     <style type="text/css">  
-        body {  
-            margin: 0;  
-            background: #e6e6e6;  
-        }  
-        .showSlide {  
-          
-        }  
-            .showSlide img {  
-                width: 100%;  
-            }  
-        .slidercontainer {  
-            max-width: 1000px;  
-            position: relative;  
-            margin: auto;  
-        }  
-        .left, .right {  
-            cursor: pointer;  
-            position: absolute;  
-            top: 50%;  
-            width: auto;  
-            padding: 16px;  
-            margin-top: -22px;  
-            color: white;  
-            font-weight: bold;  
-            font-size: 18px;  
-            transition: 0.6s ease;  
-            border-radius: 0 3px 3px 0;  
-        }  
-        .right {  
-            right: 0;  
-            border-radius: 3px 0 0 3px;  
-        }  
-            .left:hover, .right:hover {  
-                background-color: rgba(115, 115, 115, 0.8);  
-            }  
-        .content {  
-            color: #eff5d4;  
-            font-size: 30px;  
-            padding: 8px 12px;  
-            position: absolute;  
-            top: 10px;  
-            width: 100%;  
-            text-align: center;  
-        }  
-        .active {  
-            background-color: #717171;  
-        }  
-        /* Fading animation */  
-        .fade {  
-            -webkit-animation-name: fade;  
-            -webkit-animation-duration: 1.5s;  
-            animation-name: fade;  
-            animation-duration: 1.5s;  
-        }  
-        @-webkit-keyframes fade {  
-            from {  
-                opacity: .4  
-            }  
-            to {  
-                opacity: 1  
-            }  
-        }  
-  
-        @keyframes fade {  
-            from {  
-                opacity: .4  
-            }  
-            to {  
-                opacity: 1  
-            }  
-        }  
+      .carousel{
+        padding-top: 20px;
+        width: 357px;
+        overflow: hidden;
+        height: 50px;
+        position: relative;
+    }.carousel ul{
+        position: relative;
+        list-style: none;
+        list-style-type: none;
+        margin: 0;
+        height: 50px;
+        padding: 0;
+    }.carousel ul li{
+        position: absolute;
+        height: 25px;
+        width: 50px;
+        float: left;
+        margin-right: 1px;
+        background: #f2f2f2;
+        text-align: center;
+        padding-top: 25px;
+    }
     </style>  
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>  
 <body>  
-    <div class="slidercontainer">  
-        <div class="showSlide fade">  
-            <img src="../assetsAnh/anh.png" />  
-            <div class="content">Slide1 heading</div>  
-        </div>  
-        <div class="showSlide fade">  
-            <img src="../assetsAnh/dashkit.jpg" />  
-            <div class="content">Slide2 heading</div>  
-        </div>  
-  
-        <div class="showSlide fade">  
-            <img src="../assetsAnh/photo-1.jpg" />  
-            <div class="content">Slide3 heading</div>  
-        </div>  
-        <div class="showSlide fade">  
-            <img src="../assetsAnh/photo-2.jpg" />  
-            <div class="content">Slide4 heading</div>  
-        </div>  
-      
-        <!-- Navigation arrows -->  
-        <a class="left" onclick="nextSlide(-1)">❮</a>  
-        <a class="right" onclick="nextSlide(1)">❯</a>  
-    </div>  
+    <a href="javascript:void(0);" class="btnPrevious">Previous</a>
+    <a href="javascript:void(0);" class="btnNext">Next</a>
+    <div class="carousel">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+            <li>11</li>
+            <li>12</li>
+            <li>13</li>
+            <li>14</li>
+        </ul>
+    </div>
   
     <script type="text/javascript">  
-        var slide_index = 1;  
-        displaySlides(slide_index);  
-  
-        function nextSlide(n) {  
-            displaySlides(slide_index += n);  
-        }  
-  
-        function currentSlide(n) {  
-            displaySlides(slide_index = n);  
-        }  
-        function displaySlides(n) {  
-            var i;  
-            var slides = document.getElementsByClassName("showSlide");
-            console.log(slides);
-            
-            console.log("slides  " + slides +slides);
-            if (n > slides.length) { slide_index = 1 }  
-            if (n < 1) { slide_index = slides.length }  
-            for (i = 0; i < slides.length; i++) {  
-                slides[i].style.display = "none";  
-            }  
-            slides[slide_index-1].style.display = "block";  
-        }  
+        $(function(){
+        var carousel = $('.carousel ul');
+        var carouselChild = carousel.find('li');
+        var clickCount = 0;
+        var canClick = true;
+
+        itemWidth = carousel.find('li:first').width()+1; //Including margin
+
+        //Set Carousel width so it won't wrap
+        carousel.width(itemWidth*carouselChild.length);
+
+        //Place the child elements to their original locations.
+        refreshChildPosition();
+
+        //Set the event handlers for buttons.
+        $('.btnNext').click(function(){
+            if(canClick){
+                canClick = false;
+                clickCount++;
+
+                //Animate the slider to left as item width 
+                carousel.stop(false, true).animate({
+                    left : '-='+itemWidth
+                },300, function(){
+                    //Find the first item and append it as the last item.
+                    lastItem = carousel.find('li:first');
+                    lastItem.remove().appendTo(carousel);
+                    lastItem.css('left', ((carouselChild.length-1)*(itemWidth))+(clickCount*itemWidth));
+                    canClick = true;
+                });
+            }
+        });
+
+        $('.btnPrevious').click(function(){
+            if(canClick){
+                canClick = false;
+                clickCount--;
+                //Find the first item and append it as the last item.
+                lastItem = carousel.find('li:last');
+                lastItem.remove().prependTo(carousel);
+
+                lastItem.css('left', itemWidth*clickCount);             
+                //Animate the slider to right as item width 
+                carousel.finish(true).animate({
+                    left: '+='+itemWidth
+                },300, function(){
+                    canClick = true;
+                });
+            }
+        });
+
+        function refreshChildPosition(){
+            carouselChild.each(function(){
+                $(this).css('left', itemWidth*carouselChild.index($(this)));
+            });
+        }
+    });
+
     </script>  
   
 </body>  
 </html>   
+<!-- https://stackoverflow.com/questions/22078356/carousel-using-jquery -->

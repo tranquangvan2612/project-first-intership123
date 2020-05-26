@@ -703,11 +703,11 @@ body {
 }
 .form-label-group {
   width: 100%;
-  height: 5rem;
+  height: 6rem;
 }
 .form-control {
   width: 100%;
-  height: 96% !important;
+  height: 70% !important;
   border: none !important;
   border-bottom: 1px solid rgb(224, 224, 224) !important;
 }
@@ -725,7 +725,7 @@ form {
   padding: 0 2rem;
 }
 .download-sample {
-  height: 7rem;
+  height: 10rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -754,6 +754,7 @@ form {
   color: #ea341d;
   text-align: center;
   font-weight: bold;
+  margin: 0;
 }
 .button-download-sample:hover {
   transform: translateY(-5px);
@@ -972,7 +973,7 @@ form {
 .image-publicize {
   width: 50%;
   overflow: hidden;
-  /* clip-path: ellipse(65% 135% at 33% 26%); */
+  clip-path: ellipse(65% 135% at 33% 26%);
   border-radius: 1rem;
   /* animation-name: fade;
   animation-duration: 1.5s; */

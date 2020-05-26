@@ -88,7 +88,6 @@ function prevSlide() {
 }
 
 function nextSlide() {
-  console.log("asdas");
   const elCarousel = document.getElementById("sharing-carousel");
 
   let element = document.querySelector(".carousel-item");
